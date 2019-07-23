@@ -1,4 +1,8 @@
-p, h2, ul
+p
 {
-    color: red;
+    color: red; /* les pagaraphes seront en rouge*/
+}
+.title
+{
+	color: blue;
 }
