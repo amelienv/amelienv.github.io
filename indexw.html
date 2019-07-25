@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather station</title>
+	<link rel="stylesheet" type="text/css" href="stylew.css">
+	<meta charset="utf-8">
+</head>
+<body>
+	<h1>Stanford University weather station</h1>
+	<p>You will see below all the informations concerning the weather station :</p>
+	<p id="output"></p>
+	<p><a href="http://api.openweathermap.org/data/2.5/weather?zip=94305,us&APPID=ec89102e0482241a9987f08e627488e7&units=imperial" title="API link" target="_blank" class="link">API link</a></p>
+
+	<script>
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+		    var myObj = JSON.parse(this.responseText);
+		    document.getElementById("output").innerHTML = "Temperature = " + myObj.main.temp + " ° Fahrenheit<br>" + "Pressure = " + myObj.main.pressure + " hPa<br>" + "Humidity = " + myObj.main.humidity + " %<br>" + "Wind = " + myObj.wind.speed + "mph";
+		  }
+		};
+		xmlhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?zip=94305,us&APPID=ec89102e0482241a9987f08e627488e7&units=imperial", true);
+		xmlhttp.send();
+
+	</script>
+
+	<!--RAW JSON data :
+	<script>
+		function reqListener () {
+		  var weather_data = this.responseText;
+		  document.getElementById('output').innerHTML = weather_data;
+		}
+
+		var oReq = new XMLHttpRequest();
+		oReq.addEventListener("load", reqListener);
+		oReq.open("GET", "http://api.openweathermap.org/data/2.5/weather?zip=94305,us&APPID=ec89102e0482241a9987f08e627488e7&units=imperial");
+
+		oReq.send();
+	</script>-->
+<a href="index.html" title="Revenir au site précédent" class="link">index.html</a>
+</body>
+</html>
