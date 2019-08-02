@@ -16,10 +16,10 @@
 		xmlhttp.onreadystatechange = function() {
 		  if (this.readyState == 4 && this.status == 200) {
 		    var myObj = JSON.parse(this.responseText);
-		    document.getElementById("output").innerHTML = "Temperature = " + myObj.main.temp + " ° Fahrenheit<br>" + "Pressure = " + myObj.main.pressure + " hPa<br>" + "Humidity = " + myObj.main.humidity + " %<br>" + "Wind = " + myObj.wind.speed + "mph";
+		    document.getElementById("output").innerHTML = "Temperature = " + myObj.main.temp + " ° Celsius<br>" + "Pressure = " + myObj.main.pressure + " hPa<br>" + "Humidity = " + myObj.main.humidity + " %<br>" + "Wind = " + myObj.wind.speed + " km/h";
 		  }
 		};
-		xmlhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?zip=94305,us&APPID=ec89102e0482241a9987f08e627488e7&units=imperial", true);
+		xmlhttp.open("GET", "http://api.openweathermap.org/data/2.5/weather?zip=94305,us&APPID=ec89102e0482241a9987f08e627488e7&units=metric", true);
 		xmlhttp.send();
 
 	</script>
